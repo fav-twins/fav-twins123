@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enimpa Ekow Ansah-Conduah</title>
+    </head>
+    <body>
+        <h1>Welcome To Enimpa Digital Clock
+            "Created By Enimpa Ekow Ansah-Conduah"</h1>
+        <h1 id="clock"></h1>
+        <style>
+            h1 {
+                color: aquamarine;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: linear-gradient(45deg, blue, blueviolet);
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                text-align: center;
+                height: 100vh;
+                flex-direction: column;
+            
+            }
+            
+            #clock{
+                font-size: 60px;
+                border-radius: 30px;
+                height: 95px;
+                margin-top: 5%;
+                width: 300px;
+                background-color: black;
+                color: whitesmoke;
+                align-items: center;
+                justify-content: center;
+            }
+            @media (max-width: 768px) {
+                #clock {
+                    font-size: 40px;
+                    width: 200px;
+                }
+            }
+            @media (max-width: 480px) {
+                #clock {
+                    font-size: 30px;
+                    width: 150px;
+                }
+            }
+        </style>
+        <script>
+            function showclock(){
+                const today = new Date()
+                let seconds = today.getSeconds()
+                let hour = today.getHours()
+                let minute = today.getMinutes()
+
+                if(seconds < 10){
+                    seconds = "0" + seconds
+                }   
+
+                if(minute < 10){
+                    minute = "0" + minute
+                }
+                if(hour < 10){
+                    hour = "0" + hour
+                }
+
+                const clock = hour + ":"+minute+":"+seconds
+                document.getElementById("clock").innerText = clock
+            }
+            setInterval(showclock,1000)
+        </script>
+    </body>
+</html>
